@@ -1,0 +1,40 @@
+{
+  "name": "code-plus",
+  "version": "1.0.0",
+  "keywords": [
+    "code",
+    "tool",
+    "editor.js",
+    "editorjs",
+    "prismjs",
+    "prism.js",
+    "hightlight"
+  ],
+  "description": "为editor.js的代码高亮服务的code插件",
+  "license": "MIT",
+  "repository": "https://github.com/xiaogonggong-w/code-plus.git",
+  "main": "./dist/bundle.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "prebuild": "npm version patch",
+    "postbuild": "npm publish",
+    "build:dev": "webpack --mode development --watch"
+  },
+  "author": {
+    "name": "xiaogonggong-w",
+    "email": "2034966679@qq.com"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "babel-loader": "^8.0.5",
+    "css-loader": "^3.5.3",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.29.5",
+    "webpack-cli": "^3.2.3"
+  },
+  "dependencies": {
+    "@codexteam/icons": "^0.2.0",
+    "prismjs": "^1.29.0"
+  }
+}

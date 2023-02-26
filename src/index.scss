@@ -1,0 +1,180 @@
+.code-plus__inside {
+    font-family: Menlo, Monaco, Consolas, Courier New, monospace;
+    color: #595959;
+    line-height: 22px;
+    font-size: 14px;
+    border: none;
+    box-shadow: none;
+    white-space: pre;
+    border: none;
+    min-width: 100%;
+    user-select: text;
+    padding: 0;
+    display: inline-block;
+
+}
+
+.code-plus__inside:empty:before {
+    content: attr(data-placeholder);
+}
+
+.code-plus__outside {
+    width: 100%;
+    overflow-x: auto;
+    background-color: #fafafa;
+    padding: 0 12px 32px;
+    box-sizing: border-box;
+    transition: background-color .15s ease;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.code-plus-svg-wrapper {
+    display: flex;
+    justify-content: space-between;
+    height: 24px;
+    align-items: center;
+    border-radius: 4px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.code-plus-language {
+    height: 32px;
+    padding: 0 8px;
+    background-color: #fafafa;
+    transition: background-color .15s ease;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+}
+
+.ce-block--selected{
+    .code-plus-language{
+        background-color: inherit;
+    }
+    .code-plus__outside{
+        background-color: inherit;
+    }
+    .operator{
+        background: transparent;
+    }
+}
+
+.code-plus-text {
+    cursor: pointer;
+    border-radius: 2px;
+    padding: 2px;
+    transition: background 0.2s;
+
+    &:hover {
+        background-color: #ebebeb;
+    }
+}
+
+.code-plus-library-menu {
+    .code-plus-select-language-menu {
+        border-radius: 6px;
+        color: rgba(0, 0, 0, 0.87);
+        padding: 4px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        color: rgba(55, 53, 47, 0.65);
+        transition: opacity 300ms ease-in 0s;
+        opacity:0;
+
+        .code-plus-copy,
+        .code-plus-language-item {
+            display: flex;
+            border-radius: 4px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .code-plus-copy {
+            padding: 0px 6px 0 4px;
+            background-color: #EAEAEA;
+        }
+
+        .code-plus-language-menu {
+            position: relative;
+
+            .code-plus-language-item {
+                display: flex;
+                align-items: center;
+                padding: 4px 6px;
+
+
+                .code-plus-language-svg {
+                    transition: all 297ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 198ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+                }
+
+                &:hover {
+                    background-color: #EAEAEA;
+                }
+
+            }
+
+
+        }
+    }
+}
+
+.code-plus-language-outside {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2023;
+    overflow: hidden;
+
+    .code-plus-language-options {
+        position: absolute;
+        background-color: #fff;
+        box-shadow: 0 4px 20px 0 rgb(0 0 0 / 16%);
+        border-radius: 4px;
+        max-height: 200px;
+        overflow: auto;
+        padding-top: 10px;
+        margin-top: 5px;
+        padding-bottom: 10px;
+        padding-right: 4px;
+        transition: all 297ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 198ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+
+        /* 整个滚动条 */
+        &::-webkit-scrollbar {
+            /* 对应纵向滚动条的宽度 */
+            width: 8px;
+            /* 对应横向滚动条的宽度 */
+            height: 8px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: #cfcfcf;
+            border-radius: 4px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background-color: transparent;
+        }
+
+
+
+        .code-plus-language-option {
+            cursor: pointer;
+            padding: 0 15px;
+            height: 30px;
+            display: flex;
+            color: #4c4c4c;
+            align-items: center;
+            font-size: 14px;
+
+            &:hover {
+                background-color: #EAEAEA;
+            }
+        }
+    }
+}
