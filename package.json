@@ -16,8 +16,6 @@
   "main": "./dist/bundle.js",
   "scripts": {
     "build": "webpack --mode production",
-    "prebuild": "npm version patch",
-    "postbuild": "npm publish",
     "build:dev": "webpack --mode development --watch"
   },
   "author": {

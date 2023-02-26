@@ -19,7 +19,7 @@ export default class CodePlus {
   }
 
   /**
-   * Allow to press Enter inside the CodeTool div
+   * Allow to press Enter inside the CodePlus div
    *
    * @returns {boolean}
    * @public
@@ -50,7 +50,7 @@ export default class CodePlus {
     this.api = api;
     this.readOnly = readOnly;
 
-    this.placeholder = this.api.i18n.t(config.placeholder || CodeTool.DEFAULT_PLACEHOLDER);
+    this.placeholder = this.api.i18n.t(config.placeholder || CodePlus.DEFAULT_PLACEHOLDER);
 
     this.CSS = {
       baseClass: this.api.styles.block,
@@ -295,7 +295,7 @@ export default class CodePlus {
   /**
    * Extract Tool's data from the view
    *
-   * @param {HTMLDivElement} codeWrapper - CodeTool's wrapper, containing div with code
+   * @param {HTMLDivElement} codeWrapper - CodePlus's wrapper, containing div with code
    * @returns {CodeData} - saved plugin code
    * @public
    */
@@ -343,7 +343,7 @@ export default class CodePlus {
   }
 
   /**
-   * Default placeholder for CodeTool's div
+   * Default placeholder for CodePlus's div
    *
    * @public
    * @returns {string}
