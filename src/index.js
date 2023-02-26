@@ -7,20 +7,7 @@ import Prism from 'prismjs'
 import { IconCopy } from '@codexteam/icons';
 const getFrontOffset = _getFrontOffset();
 const getRealDomAndOffset = _getRealDomAndOffset()
-/**
- * CodeTool for Editor.js
- *
- * @author CodeX (team@ifmo.su)
- * @copyright CodeX 2018
- * @license MIT
- * @version 2.0.0
- */
 
-/* global PasteEvent */
-
-/**
- * Code Tool for the Editor.js allows to include code examples in your articles.
- */
 export default class CodePlus {
   /**
    * Notify core that read-only mode is supported
@@ -432,12 +419,6 @@ export default class CodePlus {
     this.range = range;
     this.selection = selection;
   }
-
-  // keyPressHandler(event) {
-  //   event.preventDefault();
-  //   this.textInit(event, this.isEnterPress ? '\n' : '\n\n');
-  //   this.isEnterPress = true;
-  // }
 
 
   generateHtml(text) {
