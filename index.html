@@ -54,7 +54,11 @@
                 "version": "2.26.0"
             },
             onChange: (api, event) => {
-               
+                editor.save().then((outputData) => {
+  console.log('Article data: ', outputData)
+}).catch((error) => {
+  console.log('Saving failed: ', error)
+});
             }
         })
 
