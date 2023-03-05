@@ -46,9 +46,11 @@ export default class CodePlus {
    * @param {object} options.api - Editor.js API
    * @param {boolean} options.readOnly - read only mode flag
    */
-  constructor({ data, config, api, readOnly }) {
+  constructor({ data, config, api, readOnly, block }) {
     this.api = api;
     this.readOnly = readOnly;
+
+    this.blockAPI = block;
 
     this.placeholder = this.api.i18n.t(config.placeholder || CodePlus.DEFAULT_PLACEHOLDER);
 
@@ -205,6 +207,8 @@ export default class CodePlus {
         this.nodes.div.textContent = this.nodes.div.textContent;
 
       }
+
+      this.blockAPI.dispatchChange();
 
       if (document.body.contains(this.nodes.languageOutside)) {
         document.body.removeChild(this.nodes.languageOutside);
