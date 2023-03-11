@@ -2,7 +2,7 @@
 codeplus工具是Editor.js的块级插件
 # 安装
 ```
-npm i --save-dev code-plus
+npm i -D code-plus
 
 ```
 或者直接[下载源码](https://github.com/xiaogonggong-w/code-plus.git),使用dist/bundle.js.
