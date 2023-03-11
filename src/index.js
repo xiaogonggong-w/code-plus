@@ -1,6 +1,6 @@
 
-import '../css/index.css';
-import '../css/prism.css'
+import './index.scss';
+import './prism.css'
 import { _getFrontOffset, selection, _getRealDomAndOffset } from './utils/string';
 import { IconBrackets } from '@codexteam/icons';
 import Prism from 'prismjs'

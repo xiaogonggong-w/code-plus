@@ -7,9 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/@editorjs/editorjs@latest"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/@calumk/editorjs-nested-checklist@latest"></script> -->
-    <script src="./dist/bundle.js"></script>
-    <link rel="stylesheet" href="./css/index.css">
     <style>
         body {
             width: 100vw;
@@ -21,6 +18,7 @@
 <body>
     <div id="editorjs"></div>
     <script type="module">
+        import CodePlus from './dist/bundle.js'
         const editor = new EditorJS({
             /** 
              * Id of Element that should contain the Editor 
@@ -55,10 +53,10 @@
             },
             onChange: (api, event) => {
                 editor.save().then((outputData) => {
-  console.log('Article data: ', outputData)
-}).catch((error) => {
-  console.log('Saving failed: ', error)
-});
+                    console.log('Article data: ', outputData)
+                }).catch((error) => {
+                    console.log('Saving failed: ', error)
+                });
             }
         })
 
