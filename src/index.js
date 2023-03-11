@@ -9,43 +9,18 @@ const getFrontOffset = _getFrontOffset();
 const getRealDomAndOffset = _getRealDomAndOffset()
 
 export default class CodePlus {
-  /**
-   * Notify core that read-only mode is supported
-   *
-   * @returns {boolean}
-   */
   static get isReadOnlySupported() {
     return true;
   }
 
-  /**
-   * Allow to press Enter inside the CodePlus div
-   *
-   * @returns {boolean}
-   * @public
-   */
   static get enableLineBreaks() {
     return true;
   }
 
   get defaultLanguages() {
-    return ['纯文本', 'Css', 'Python', 'Git', 'JavaScript', 'Go', 'C', 'C++', 'Rust', 'Java']
+    return ['纯文本', 'Css', 'Python', 'Git', 'JavaScript', 'Go', 'C', 'Java']
   }
 
-  /**
-   * @typedef {object} CodeData — plugin saved data
-   * @property {string} code - previously saved plugin code
-   */
-
-  /**
-   * Render plugin`s main Element and fill it with saved data
-   *
-   * @param {object} options - tool constricting options
-   * @param {CodeData} options.data — previously saved plugin code
-   * @param {object} options.config - user config for Tool
-   * @param {object} options.api - Editor.js API
-   * @param {boolean} options.readOnly - read only mode flag
-   */
   constructor({ data, config, api, readOnly, block }) {
     this.api = api;
     this.readOnly = readOnly;
@@ -239,9 +214,11 @@ export default class CodePlus {
       document.execCommand("Copy");
       oInput.className = 'oInput';
       oInput.style.display = 'none';
-      svgWrapper.removeChild(spanCopy);
       spanCopy.textContent = 'Copied';
-      svgWrapper.appendChild(spanCopy);
+      const timer = setTimeout(()=>{
+        spanCopy.textContent = 'Copy';
+        clearTimeout(timer);
+      },1000)
     })
 
     codePlusLibraryMenu.appendChild(selectLangueMenu);
@@ -378,50 +355,6 @@ export default class CodePlus {
     return {
       code: true, // Allow HTML tags
     };
-  }
-  /**
- * 复制粘贴处理
- * @param e
- */
-  textInit(event, value) {
-    const selection = this.selection;
-    const range = this.range;
-    if (!selection.rangeCount) return false
-    selection.getRangeAt(0).insertNode(document.createTextNode(value));
-    this.nodes.div.normalize();
-    var rangeStartOffset = range.startOffset;
-    this.positioningHandle(selection, range, this.nodes.div.childNodes[0], rangeStartOffset + value.length);
-    event.preventDefault();
-    event.stopPropagation();
-  }
-
-
-
-  pasteHandler(event) {
-    event.preventDefault();
-    event.stopPropagation();
-    let paste = (event.clipboardData || window.clipboardData).getData('text');
-    this.textInit(event, paste)
-  }
-
-  /**
-   * 获取光标的位置
-   */
-  cursorHandler() {
-    this.selection = window.getSelection();
-    this.range = this.selection.getRangeAt(0);
-  }
-
-  positioningHandle(selection, range, dom, len) {
-    if (len === 0) {
-      len = range.startOffset;
-    }
-    range.setStart(dom, len);
-    range.collapse(true);
-    selection.removeAllRanges();
-    selection.addRange(range);
-    this.range = range;
-    this.selection = selection;
   }
 
 
