@@ -17,6 +17,8 @@
   "type": "module",
   "scripts": {
     "build": "rollup -c",
+    "prebuild":"npm version patch",
+    "postbuild":"npm publish",
     "dev": "rollup -wc"
   },
   "author": {
