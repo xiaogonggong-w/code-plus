@@ -1,6 +1,6 @@
 {
   "name": "code-plus",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "keywords": [
     "code",
     "tool",
@@ -17,8 +17,8 @@
   "type": "module",
   "scripts": {
     "build": "rollup -c",
-    "prebuild":"npm version patch",
-    "postbuild":"npm publish",
+    "prebuild": "npm version patch",
+    "postbuild": "npm publish",
     "dev": "rollup -wc"
   },
   "author": {
